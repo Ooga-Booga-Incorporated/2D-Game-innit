@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://d0ic0121o1mil"]
+[gd_scene load_steps=29 format=3 uid="uid://cmgfv2ccfsnxr"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_fvgep"]
 [ext_resource type="Texture2D" uid="uid://cyvprdpdec7f2" path="res://asset stuff/Main Characters/Mask Dude/Idle (32x32).png" id="1_hann0"]
@@ -183,8 +183,10 @@ animations = [{
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(120, 88)
 script = ExtResource("1_fvgep")
-speed = 500
+speed = 400
 gravity = 20
+friction = 0.1
+acceleration = 0.086
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

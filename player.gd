@@ -4,6 +4,9 @@ extends CharacterBody2D
 @export var jump_velocity = -1000
 @export var gravity = 980
 
+@export_range(0, 1) var friction = 0.2
+@export_range(0, 1) var acceleration = 0.2
+
 var direction = 0
 
 func _process(delta):
@@ -20,7 +23,12 @@ func _physics_process(delta):
 	velocity.y += gravity
 	
 	direction = Input.get_axis("move_left", "move_right")
-	velocity.x += direction * speed * delta
+	
+	if direction == 0:
+		velocity.x = lerp(velocity.x, 0.0, friction)
+	else: 
+		velocity.x = lerp(velocity.x, direction * speed, acceleration)
+		#velocity.x += direction * speed * delta
 	
 	move_and_slide()
 	
